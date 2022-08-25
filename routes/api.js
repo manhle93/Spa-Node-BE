@@ -37,6 +37,8 @@ router.post("/refresh", AuthController.refreshToken);
 router.get("/logout", Auth.auth, AuthController.logout);
 router.get("/logoutall", Auth.auth, AuthController.logoutAllDevice);
 router.get("/me",Auth.auth, AuthController.me);
+router.post("/updatemyuser",Auth.auth, AuthController.updateMyUser);
+
 
 /* Menu Role Router. */
 router.get("/menus", Auth.auth, RoleController.getMenu);
