@@ -1,5 +1,4 @@
 'use strict';
-const Role = require("../models").Role;
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -12,7 +11,12 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    Role.destroy()
+    await queryInterface.bulkDelete('Roles',{},{
+      force: true,
+      truncate: true,
+      cascade: true,
+      restartIdentity: true
+    });
     return queryInterface.bulkInsert('Roles', [{
       name: 'Admin',
       code: 'admin',

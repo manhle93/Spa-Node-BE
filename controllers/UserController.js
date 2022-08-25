@@ -136,7 +136,6 @@ class UserController {
     }
   };
   createUser = async (req, res) => {
-    console.log(4334343);
     const errors = validationResult(req); // Finds the validation errors in this request and wraps them in an object with handy functions
     if (!errors.isEmpty()) {
       res.status(422).json({ message: "Dữ liệu không hợp lệ! Không thể đăng ký", errors: errors.array() });

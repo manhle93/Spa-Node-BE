@@ -15,7 +15,6 @@ const HOST = '0.0.0.0';
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-app.set('host', port);
 
 /**
  * Create HTTP server.
@@ -87,6 +86,6 @@ function onListening() {
   var bind = typeof addr === 'string'
   ? 'pipe ' + addr
   : 'port ' + addr.port;
-  console.log('Listening on ' + bind)
+  console.log(`Listening on http://localhost:${addr.port}`)
   debug('Listening on ' + bind);
 }

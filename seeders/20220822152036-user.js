@@ -11,6 +11,12 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+     await queryInterface.bulkDelete('Users',{},{
+      force: true,
+      truncate: true,
+      cascade: true,
+      restartIdentity: true
+    });
      await queryInterface.bulkInsert('Users', [{
         name: 'Administrator',
         userName: 'admin',
