@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var multer  = require('multer')
 const UserController = require("../controllers").UserController;
+const StoreController = require("../controllers").StoreController;
 const RoleController = require("../controllers").RoleController;
 const AuthController = require("../controllers").AuthController;
 const UserValidator = require("../validation/userValidator");
@@ -61,6 +62,11 @@ router.post("/updateuser", UserValidator.updateUser(), Auth.auth, UserController
 router.post("/createuser", UserValidator.createUser(), Auth.auth, UserController.createUser);
 
 
+/* Store Router. */
+router.post("/addstore", StoreController.createStore);
+router.put("/updatestore", StoreController.updateStore);
+router.get("/store", StoreController.getListStore);
+router.put("/adstore", StoreController.activeDeactive);
 
 
 
